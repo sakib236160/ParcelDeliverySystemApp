@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const authRoute = require("./routes/auth")
 
 
 dotenv.config();
@@ -11,7 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-
+// ROUTES
+app.use("/auth", authRoute)
 
 // DATABASE CONNECTION
 const DB = process.env.DB;
